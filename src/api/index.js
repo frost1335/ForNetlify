@@ -1,7 +1,15 @@
 import axios from "axios";
 
 // product
-export const fetchProducts = () => axios.get("/api/shop/all");
+export const fetchProducts = () =>
+  axios.get("https://sheltered-savannah-53157.herokuapp.com/api/shop/all/", {
+    mode: "cors",
+    credentials: "include",
+    headers: {
+      "Access-Control-Allow-Origin":
+        "https://sheltered-savannah-53157.herokuapp.com/",
+    },
+  });
 export const fetchAllProducts = () => axios.get("/api/product");
 export const updateProduct = (id, updatedProduct) =>
   axios.put(`/api/product/${id}`, updatedProduct);
